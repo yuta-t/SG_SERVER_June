@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B7D7B779-458B-465F-B7AC-2803DB72FABF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AgentServer</RootNamespace>
+    <AssemblyName>AgentServer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="INIFileParser, Version=2.5.2.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL">
+      <HintPath>..\packages\ini-parser.2.5.2\lib\net20\INIFileParser.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.13\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CapsuleMachineManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapsuleMachineManager.Designer.cs">
+      <DependentUpon>CapsuleMachineManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conf.cs" />
+    <Compile Include="ConsoleTextBoxWriter.cs" />
+    <Compile Include="Controller\RelayController.cs" />
+    <Compile Include="Database\DBHelp.cs" />
+    <Compile Include="Database\DBInit.cs" />
+    <Compile Include="Dialog\GMTool_GiveItemDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\GMTool_GiveItemDialog.Designer.cs">
+      <DependentUpon>GMTool_GiveItemDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\NestedDictionary.cs" />
+    <Compile Include="Function\WeightedRandomizer\DynamicWeightedRandomizer.cs" />
+    <Compile Include="Function\WeightedRandomizer\IWeightedRandomizer.cs" />
+    <Compile Include="Function\WeightedRandomizer\RandomExtensionMethods.cs" />
+    <Compile Include="Function\WeightedRandomizer\StaticWeightedRandomizer.cs" />
+    <Compile Include="Function\WeightedRandomizer\ThreadAwareRandom.cs" />
+    <Compile Include="Dialog\GMToolMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\GMToolMain.Designer.cs">
+      <DependentUpon>GMToolMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Holders\GameRewardHolder.cs" />
+    <Compile Include="Holders\CapsuleMachineHolder.cs" />
+    <Compile Include="Holders\ItemHolder.cs" />
+    <Compile Include="Holders\GameModeHolder.cs" />
+    <Compile Include="Holders\RunQuizHolder.cs" />
+    <Compile Include="Holders\ServerSettingHolder.cs" />
+    <Compile Include="Holders\RoomHolder.cs" />
+    <Compile Include="Holders\MapHolder.cs" />
+    <Compile Include="Holders\MapItemHolder.cs" />
+    <Compile Include="Holders\MapCardHolder.cs" />
+    <Compile Include="Holders\AccountHolder.cs" />
+    <Compile Include="Network\Connections\ClientConnection.cs" />
+    <Compile Include="Network\Connections\RelayConnection.cs" />
+    <Compile Include="Network\DelegateList.cs" />
+    <Compile Include="Packet\EnchantSystem.cs" />
+    <Compile Include="Packet\FarmHandle.cs" />
+    <Compile Include="Packet\GachaHandle.cs" />
+    <Compile Include="Packet\GameRoomEvent.cs" />
+    <Compile Include="Packet\GameModeHandle.cs" />
+    <Compile Include="Packet\CommunityHandle.cs" />
+    <Compile Include="Packet\CommandHandle.cs" />
+    <Compile Include="Packet\GMCommandHandle.cs" />
+    <Compile Include="Packet\ExchangeHandle.cs" />
+    <Compile Include="Packet\Send\EnchantSystemPacket.cs" />
+    <Compile Include="Packet\Send\FarmPacket.cs" />
+    <Compile Include="Packet\Send\ShuSystemPacket.cs" />
+    <Compile Include="Packet\ShuSystemHandle.cs" />
+    <Compile Include="Packet\RankHandle.cs" />
+    <Compile Include="Packet\ParkHandle.cs" />
+    <Compile Include="Packet\Send\CommunityPacket.cs" />
+    <Compile Include="Packet\Send\GachaPacket.cs" />
+    <Compile Include="Packet\Send\ExchangePacket.cs" />
+    <Compile Include="Packet\Send\RankPacket.cs" />
+    <Compile Include="Packet\Send\LobbyPacket.cs" />
+    <Compile Include="Packet\Send\ParkPacket.cs" />
+    <Compile Include="Packet\Send\ShopPacket.cs" />
+    <Compile Include="Packet\ShopHandle.cs" />
+    <Compile Include="Packet\RoomServerHandle.cs" />
+    <Compile Include="Packet\GameRoomHandle.cs" />
+    <Compile Include="Packet\LobbyHandle.cs" />
+    <Compile Include="Packet\MyRoomHandle.cs" />
+    <Compile Include="Packet\FirstLoginHandle.cs" />
+    <Compile Include="Packet\RelayServer\RelayServerHandle.cs" />
+    <Compile Include="Packet\RelayServer\Send\RelayServerPacket.cs" />
+    <Compile Include="Packet\Send\GameModePacket.cs" />
+    <Compile Include="Packet\Send\GameRoomPacket.cs" />
+    <Compile Include="Packet\Send\MyRoomPacket.cs" />
+    <Compile Include="Packet\Send\FirstLoginPacket.cs" />
+    <Compile Include="Packet\Send\ServerPacket.cs" />
+    <Compile Include="Packet\UnknownHandle.cs" />
+    <Compile Include="Packet\LoginHandle.cs" />
+    <Compile Include="Packet\Send\LoginPacket.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structuring\Account.cs" />
+    <Compile Include="Structuring\Battle\Battle.cs" />
+    <Compile Include="Structuring\Battle\BattleRecord.cs" />
+    <Compile Include="Structuring\GameReward\GameRewardGroup.cs" />
+    <Compile Include="Structuring\Game\Trade.cs" />
+    <Compile Include="Structuring\Game\TradeRecord.cs" />
+    <Compile Include="Structuring\Item\ItemAttr.cs" />
+    <Compile Include="Structuring\Item\ItemShopInfo.cs" />
+    <Compile Include="Structuring\Item\ItemCPK.cs" />
+    <Compile Include="Structuring\Item\UserItemKindInfo.cs" />
+    <Compile Include="Structuring\Item\MapCardInfo.cs" />
+    <Compile Include="Structuring\Map\Map.cs" />
+    <Compile Include="Structuring\Map\SubTeleport.cs" />
+    <Compile Include="Structuring\Map\TeleportRecord.cs" />
+    <Compile Include="Structuring\Room\GameMode.cs" />
+    <Compile Include="Structuring\Room\ObjectBoss.cs" />
+    <Compile Include="Structuring\Room\RoomKindInfo.cs" />
+    <Compile Include="Structuring\Map\MapInfo.cs" />
+    <Compile Include="Structuring\Park\CapsuleMachineInfo.cs" />
+    <Compile Include="Structuring\Park\CapsuleMachineItem.cs" />
+    <Compile Include="Structuring\Room\DropList.cs" />
+    <Compile Include="Structuring\Room\NormalRoom.cs" />
+    <Compile Include="Structuring\Room\RoomUser.cs" />
+    <Compile Include="Structuring\Room\Rooms.cs" />
+    <Compile Include="Structuring\ServerStatus.cs" />
+    <Compile Include="Structuring\Server\DBInfo.cs" />
+    <Compile Include="Structuring\Shu\ShuSystem.cs" />
+    <Compile Include="Structuring\User\UserItemCollection.cs" />
+    <EmbeddedResource Include="CapsuleMachineManager.resx">
+      <DependentUpon>CapsuleMachineManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\GMTool_GiveItemDialog.resx">
+      <DependentUpon>GMTool_GiveItemDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\GMToolMain.resx">
+      <DependentUpon>GMToolMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\LocalCommons\LocalCommons.csproj">
+      <Project>{82397832-e395-4f8c-a6f0-91acf413df90}</Project>
+      <Name>LocalCommons</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

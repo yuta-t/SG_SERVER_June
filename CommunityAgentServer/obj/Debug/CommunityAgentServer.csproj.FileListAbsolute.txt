@@ -1,0 +1,51 @@
+E:\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.csprojAssemblyReference.cache
+E:\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.Form1.resources
+E:\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.Properties.Resources.resources
+E:\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.csproj.GenerateResource.cache
+E:\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.csproj.CoreCompileInputs.cache
+E:\Projects\TR_SERVER\CommunityAgentServer\bin\Debug\CommunityAgentServer.exe.config
+E:\Projects\TR_SERVER\CommunityAgentServer\bin\Debug\CommunityAgentServer.exe
+E:\Projects\TR_SERVER\CommunityAgentServer\bin\Debug\CommunityAgentServer.pdb
+E:\Projects\TR_SERVER\CommunityAgentServer\bin\Debug\INIFileParser.dll
+E:\Projects\TR_SERVER\CommunityAgentServer\bin\Debug\LocalCommons.dll
+E:\Projects\TR_SERVER\CommunityAgentServer\bin\Debug\LocalCommons.pdb
+E:\Projects\TR_SERVER\CommunityAgentServer\bin\Debug\INIFileParser.xml
+E:\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.csproj.CopyComplete
+E:\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.exe
+E:\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.pdb
+E:\Projects\TR_SERVER\bin\Debug\CommunityAgentServer.exe.config
+E:\Projects\TR_SERVER\bin\Debug\CommunityAgentServer.exe
+E:\Projects\TR_SERVER\bin\Debug\CommunityAgentServer.pdb
+D:\Visual Studio 2017\Projects\TR_SERVER\bin\Debug\CommunityAgentServer.exe.config
+D:\Visual Studio 2017\Projects\TR_SERVER\bin\Debug\CommunityAgentServer.exe
+D:\Visual Studio 2017\Projects\TR_SERVER\bin\Debug\CommunityAgentServer.pdb
+D:\Visual Studio 2017\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.csprojAssemblyReference.cache
+D:\Visual Studio 2017\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.Form1.resources
+D:\Visual Studio 2017\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.Properties.Resources.resources
+D:\Visual Studio 2017\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.csproj.GenerateResource.cache
+D:\Visual Studio 2017\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.csproj.CoreCompileInputs.cache
+D:\Visual Studio 2017\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.csproj.CopyComplete
+D:\Visual Studio 2017\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.exe
+D:\Visual Studio 2017\Projects\TR_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.pdb
+C:\Users\user\Desktop\New folder\bin\Debug\CommunityAgentServer.exe.config
+C:\Users\user\Desktop\New folder\bin\Debug\CommunityAgentServer.exe
+C:\Users\user\Desktop\New folder\bin\Debug\CommunityAgentServer.pdb
+C:\Users\user\Desktop\New folder\CommunityAgentServer\obj\Debug\CommunityAgentServer.csprojAssemblyReference.cache
+C:\Users\user\Desktop\New folder\CommunityAgentServer\obj\Debug\CommunityAgentServer.Form1.resources
+C:\Users\user\Desktop\New folder\CommunityAgentServer\obj\Debug\CommunityAgentServer.Properties.Resources.resources
+C:\Users\user\Desktop\New folder\CommunityAgentServer\obj\Debug\CommunityAgentServer.csproj.GenerateResource.cache
+C:\Users\user\Desktop\New folder\CommunityAgentServer\obj\Debug\CommunityAgentServer.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\New folder\CommunityAgentServer\obj\Debug\CommunityAgentServer.csproj.CopyComplete
+C:\Users\user\Desktop\New folder\CommunityAgentServer\obj\Debug\CommunityAgentServer.exe
+C:\Users\user\Desktop\New folder\CommunityAgentServer\obj\Debug\CommunityAgentServer.pdb
+C:\Users\appsup2\Desktop\SG_SERVER\bin\Debug\CommunityAgentServer.exe.config
+C:\Users\appsup2\Desktop\SG_SERVER\bin\Debug\CommunityAgentServer.exe
+C:\Users\appsup2\Desktop\SG_SERVER\bin\Debug\CommunityAgentServer.pdb
+C:\Users\appsup2\Desktop\SG_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.csprojAssemblyReference.cache
+C:\Users\appsup2\Desktop\SG_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.Form1.resources
+C:\Users\appsup2\Desktop\SG_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.Properties.Resources.resources
+C:\Users\appsup2\Desktop\SG_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.csproj.GenerateResource.cache
+C:\Users\appsup2\Desktop\SG_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.csproj.CoreCompileInputs.cache
+C:\Users\appsup2\Desktop\SG_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.csproj.CopyComplete
+C:\Users\appsup2\Desktop\SG_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.exe
+C:\Users\appsup2\Desktop\SG_SERVER\CommunityAgentServer\obj\Debug\CommunityAgentServer.pdb

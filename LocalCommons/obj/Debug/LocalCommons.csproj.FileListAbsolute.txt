@@ -1,0 +1,26 @@
+E:\Projects\TR_SERVER\LocalCommons\obj\Debug\LocalCommons.csproj.CoreCompileInputs.cache
+E:\Projects\TR_SERVER\LocalCommons\bin\Debug\LocalCommons.dll
+E:\Projects\TR_SERVER\LocalCommons\bin\Debug\LocalCommons.pdb
+E:\Projects\TR_SERVER\LocalCommons\obj\Debug\LocalCommons.dll
+E:\Projects\TR_SERVER\LocalCommons\obj\Debug\LocalCommons.pdb
+E:\Projects\TR_SERVER\bin\Debug\LocalCommons.dll
+E:\Projects\TR_SERVER\bin\Debug\LocalCommons.pdb
+D:\Visual Studio 2017\Projects\TR_SERVER\bin\Debug\LocalCommons.dll
+D:\Visual Studio 2017\Projects\TR_SERVER\bin\Debug\LocalCommons.pdb
+D:\Visual Studio 2017\Projects\TR_SERVER\LocalCommons\obj\Debug\LocalCommons.csprojAssemblyReference.cache
+D:\Visual Studio 2017\Projects\TR_SERVER\LocalCommons\obj\Debug\LocalCommons.csproj.CoreCompileInputs.cache
+D:\Visual Studio 2017\Projects\TR_SERVER\LocalCommons\obj\Debug\LocalCommons.dll
+D:\Visual Studio 2017\Projects\TR_SERVER\LocalCommons\obj\Debug\LocalCommons.pdb
+E:\Projects\TR_SERVER\LocalCommons\obj\Debug\LocalCommons.csprojAssemblyReference.cache
+C:\Users\user\Desktop\New folder\bin\Debug\LocalCommons.dll
+C:\Users\user\Desktop\New folder\bin\Debug\LocalCommons.pdb
+C:\Users\user\Desktop\New folder\LocalCommons\obj\Debug\LocalCommons.csprojAssemblyReference.cache
+C:\Users\user\Desktop\New folder\LocalCommons\obj\Debug\LocalCommons.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\New folder\LocalCommons\obj\Debug\LocalCommons.dll
+C:\Users\user\Desktop\New folder\LocalCommons\obj\Debug\LocalCommons.pdb
+C:\Users\appsup2\Desktop\SG_SERVER\bin\Debug\LocalCommons.dll
+C:\Users\appsup2\Desktop\SG_SERVER\bin\Debug\LocalCommons.pdb
+C:\Users\appsup2\Desktop\SG_SERVER\LocalCommons\obj\Debug\LocalCommons.csproj.CoreCompileInputs.cache
+C:\Users\appsup2\Desktop\SG_SERVER\LocalCommons\obj\Debug\LocalCommons.dll
+C:\Users\appsup2\Desktop\SG_SERVER\LocalCommons\obj\Debug\LocalCommons.pdb
+C:\Users\appsup2\Desktop\SG_SERVER\LocalCommons\obj\Debug\LocalCommons.csprojAssemblyReference.cache
