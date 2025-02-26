@@ -250,10 +250,13 @@ namespace AgentServer.Packet
         {
             try
             {
+                Console.WriteLine("新キャラ作成");
                 Account User = Client.CurrentAccount;
                 getCharNumber(User);
-                if (User.CharacterCount > 0)
+                // すでにキャラクターが2体以上はエラー
+                if (User.CharacterCount > 2)
                 {
+                    Console.WriteLine("キャラクター上限違反");
                     return;
                 }
                 string hairClump1 = "FFFFFFFF";
@@ -501,7 +504,7 @@ namespace AgentServer.Packet
                 }
 
                 bool NewCharCheckOK = checkNewCharacter(User, charid, face, head, gender, clothColor, skinColor, hairColor, hairClump1, hairClump2, hairClump3, hairClump4);
-                //Console.WriteLine("New Char Head: {0}, Face: {1}", head, face);
+                Console.WriteLine("New Char Head: {0}, Face: {1}", head, face);
 
                 if (NewCharCheckOK)
                 {
