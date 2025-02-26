@@ -40,15 +40,17 @@ namespace AgentServer.Packet
                 int unk3 = reader.ReadLEInt32();
                 int useridlen = reader.ReadByte();
                 string userid = reader.ReadStringSafe(useridlen);
-                // int passwordlen = reader.ReadByte();
-                // string password = reader.ReadStringSafe(passwordlen);
+                int passwordlen = reader.ReadByte();
+                string password = reader.ReadStringSafe(passwordlen);
                 //reader.Clear();
-                //Console.WriteLine("unk1: {0}, unk2: {1}, unk3: {2}, useridlen: {3}, userid: {4}, passwordlen: {5}, password: {6}", unk1, unk2, unk3, useridlen, userid, passwordlen, password);
+                Console.WriteLine("unk1: {0}, unk2: {1}, unk3: {2}, useridlen: {3}, userid: {4}, passwordlen: {5}, password: {6}", unk1, unk2, unk3, useridlen, userid, passwordlen, password);
 
                 // 強制ログイン許可
-                bool UserCheckOK = true;
-                // DB接続時の文字コード問題が発生するためいったんコメントアウト
-                //bool UserCheckOK = checkUserAccount(userid, password);
+                userid = "alanlei";
+                password = "123";
+                // bool UserCheckOK = true;
+                // userid, passwordがパケットから取得できていないのでコメントアウト
+                bool UserCheckOK = checkUserAccount(userid, password);
 
                 if (UserCheckOK)
                 {
@@ -84,8 +86,7 @@ namespace AgentServer.Packet
                         return;
                     }
 
-                    // DB接続時の文字コード問題が発生するためいったんコメントアウト
-                    //CheckGameID(nCurrent);
+                    CheckGameID(nCurrent);
                     Client.SendAsync(new AccountResult_0x371_00(true));
                     Client.SendAsync(new LoginGameID_0x371_01(nCurrent));
                     getUserType(nCurrent);
@@ -184,8 +185,8 @@ namespace AgentServer.Packet
                 //string gameid = reader.ReadStringSafe(gameidlen);
                 string gameid = reader.ReadUTF8StringSafe(gameidlen);
 
-                //bool AccountCheckOK = checkNewAccount(User, gameid);
-                bool AccountCheckOK = true;
+                bool AccountCheckOK = checkNewAccount(User, gameid);
+                //bool AccountCheckOK = true;
                 if (AccountCheckOK)
                 {
                     User.GameID = gameid;
@@ -1737,12 +1738,6 @@ namespace AgentServer.Packet
             using (var con = new MySqlConnection(Conf.Connstr))
             {
                 con.Open();
-                // 接続後に文字セットを明示的に設定
-                using (var tmpcmd = new MySqlCommand("SET NAMES utf8mb4", con))
-                {
-                    tmpcmd.ExecuteNonQuery();
-                }
-
                 var cmd = new MySqlCommand(string.Empty, con);
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -1787,9 +1782,10 @@ namespace AgentServer.Packet
             {
                 using (var con = new MySqlConnection(Conf.Connstr))
                 {
-
                     con.Open();
-                    var cmd = new MySqlCommand(string.Empty, con);
+                    var cmd = new MySqlCommand("SET NAMES utf8mb4", con);
+                    cmd.ExecuteNonQuery();
+                    cmd = new MySqlCommand(string.Empty, con);
                     cmd.Parameters.Clear();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "usp_checkUserAccount";

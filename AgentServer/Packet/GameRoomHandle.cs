@@ -1061,9 +1061,10 @@ namespace AgentServer.Packet
         public static void LeaveRoom(Account User)
         {
             NormalRoom room = Rooms.GetRoom(User.UserMap.MapGlobalID);
-            // Null落ちしちゃうんでコメントアウト
-            // room.Players.Remove(User);
-            // room.BroadcastToAll(new LoginCharDisappear_0x3E8_04(User));
+            // ルーム生成されてないときに接続切れた場合は脱出する
+            if (room == null) return;
+            room.Players.Remove(User);
+            room.BroadcastToAll(new LoginCharDisappear_0x3E8_04(User));
         }
         private static bool teleportMap(Account User)
         {

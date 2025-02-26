@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using LocalCommons.Cryptography;
 using LocalCommons.Utilities;
 //using LocalCommons.Compression;
@@ -58,6 +59,7 @@ namespace LocalCommons.Network
             this._mLittleEndian = true;
             this._mIsArcheAge = true;
             ns = PacketWriter.CreateInstance(16, true);
+            Console.WriteLine("送信パケットクラス: {0}", GetType().Name);
         }
 
         /// <summary>
