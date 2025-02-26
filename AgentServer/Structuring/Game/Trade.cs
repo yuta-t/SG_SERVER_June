@@ -28,6 +28,12 @@ namespace AgentServer.Structuring.Game
             using (var con = new MySqlConnection(Conf.Connstr))
             {
                 con.Open();
+                // 接続後に文字セットを明示的に設定 こうしないとVSで起動しない
+                using (var cmd = new MySqlCommand("SET NAMES utf8mb4", con))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
                 using (var cmd = new MySqlCommand(string.Empty, con))
                 {
                     cmd.Parameters.Clear();

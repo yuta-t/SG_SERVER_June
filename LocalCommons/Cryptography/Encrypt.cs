@@ -319,6 +319,7 @@ namespace LocalCommons.Cryptography
             int deCount = 0;
             int i, j, k, l, m;
 
+            Console.WriteLine("Original Src: {0}", Utility.ByteArrayToString(src));
             if (src.Length % 4 == 0)
             {
                 filledZero = 0;
@@ -394,13 +395,14 @@ namespace LocalCommons.Cryptography
             //Console.WriteLine("Total Counter: {0}", j);
             //Console.WriteLine("Length of Src: {0}", src.Length);
             //Console.WriteLine("Length of New Src: {0}", newSrc.Length);
-            //Console.WriteLine("New Src: {0}", Utility.ByteArrayToString(newSrc));
-            //Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine("New Src: {0}", Utility.ByteArrayToString(newSrc));
+            Console.WriteLine(" ");
             //Console.WriteLine("{0}", Utility.ByteArrayToString(returnarray));
-            //Console.WriteLine(" ");
+            Console.WriteLine(" ");
             returnarray = XorKey(returnarray, returnarray.Length);
             //***Display Receive Packet***
-            Console.WriteLine("{0}", Utility.ByteArrayToString(returnarray));
+            Console.WriteLine("ReturnAray:{0}", Utility.ByteArrayToString(returnarray));
             Console.WriteLine(" ");
             return returnarray;
             /*Stream srcstream = new MemoryStream(src);
