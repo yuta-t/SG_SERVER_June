@@ -16,9 +16,9 @@
 │   └── db
 │       ├── data                        <-ここにsqlのデータが作成される(/var/lib/mysql)
 │       ├── my.cnf                      <-(/etc/mysql/conf.d/my.cnf)
-│       └── sql                         <-(/docker-entrypoint-initdb.d)
-│           ├── tr_test_db.sql          <-初期データのテンプレート
-│           └── init-database.sh        <-初期化コマンド
+│       └── init-scripts                <-初回起動時に実行される(/docker-entrypoint-initdb.d)
+│           ├── 01_init.sh              <-初期設定の.sh
+│           └── init-database.sh        <-データベースのテンプレート
 ├── docker-compose.yml
 └── readme.md
 ```
@@ -27,26 +27,29 @@
 
 ## 初回起動時のセットアップ 
 ```bash
-database$ docker-compose up -d
+database$ docker-compose up -d      #起動
 database$ docker-compose ps         #起動確認
 ```
 ここで
 ```
 NAME              IMAGE                   ...
-mysql_host        mysql:5.7               ...
+mysql_host        mysql:8.0               ...
 test_phpmyadmin   phpmyadmin/phpmyadmin   ...
 ```
 と2つが表示されなければ、``docker-compose up -d``を再度実行してください。  
 (特に初回はmysql_hostが立ち上がらない事があります。)
-2つが起動されたら
-```bash
-database$ docker-compose exec db bash -c "chmod 0775 docker-entrypoint-initdb.d/init-database.sh"
-database$ docker-compose exec db bash -c "./docker-entrypoint-initdb.d/init-database.sh"
-```
-を実行することでtr_test_db.sqlをもとに初期化します。  
-またphpMyAdminを用いて、
+
+2つが起動されたらphpMyAdminを用いて、
 http://localhost:8080/index.php
-から確認することができます。
+から確認することができます。特にtr_test_dbを確認してください。
+
+通常はこの時点で初期化スクリプトによりデータベースが構築されます。  
+データベース(tr_test_db)が空な場合には、パーミッション等で初期化スクリプトに失敗している可能性があります。
+```bash
+database$ docker-compose exec db bash -c "chmod 0775 docker-entrypoint-initdb.d/01_init.sh"
+database$ docker-compose exec db bash -c "./docker-entrypoint-initdb.d/01_init.sh"
+```
+を実行することでtr_test_db.sqlをもとに手動で初期化します。  
 
 ## コマンド類
 - サーバ起動 
@@ -63,18 +66,10 @@ database$ docker-compose ps
 database$ docker-compose stop
 ```
 
-- データベース初期化
-```bash
-database$ docker-compose exec db bash -c "chmod 0775 docker-entrypoint-initdb.d/init-database.sh"
-database$ docker-compose exec db bash -c "./docker-entrypoint-initdb.d/init-database.sh"
-```
-
 - dbサーバを直接操作(rootログイン)
 ```bash
 database$ docker-compse exec db bash
 ```
-
-
 
 # Note
 次のサイトをMySQL構築の際に参考にしました
