@@ -44,7 +44,13 @@ namespace AgentServer.Packet
                 string password = reader.ReadStringSafe(passwordlen);
                 //reader.Clear();
                 Console.WriteLine("unk1: {0}, unk2: {1}, unk3: {2}, useridlen: {3}, userid: {4}, passwordlen: {5}, password: {6}", unk1, unk2, unk3, useridlen, userid, passwordlen, password);
-
+                string otp = reader.ReadStringSafe();
+                Console.WriteLine("otp:{0}", otp);
+                // otpに空白と@が複数回出ていたら警告を出すとより安全
+                string idpass =otp.Split(' ')[0];
+                Console.WriteLine("id:{0}, pass:{1}", idpass.Split('@')[0], idpass.Split('@')[1]);
+                userid = idpass.Split('@')[0];
+                password = idpass.Split('@')[1];
                 // 強制ログイン許可
                 userid = "alanlei";
                 password = "123";

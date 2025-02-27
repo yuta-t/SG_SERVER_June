@@ -72,7 +72,8 @@ namespace LocalCommons.Network
 			this._mPacketId = packetId;
 			this._mLittleEndian = isLittleEndian;
 			ns = PacketWriter.CreateInstance(16, isLittleEndian);
-		}
+            Console.WriteLine("パケットクラス: {0}, id:{1}, isLittleEndian:{2}", GetType().Name, packetId, isLittleEndian);
+        }
 
         /// <summary>
         /// Creates Instance Of ArcheAge Game Packet.
