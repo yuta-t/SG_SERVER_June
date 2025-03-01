@@ -88,8 +88,8 @@ namespace LocalCommons.Cryptography
         public static byte[] newEncryptByte(byte[] src)
         {
             /***Strugarden Code Block***/
-            //Console.WriteLine("Send: {0}", Utility.ByteArrayToString(src));
-            //Console.WriteLine(" ");
+            // Console.WriteLine("Send: {0}", Utility.ByteArrayToString(src));
+            // Console.WriteLine(" ");
             //Console.WriteLine("Length of New Src: {0}", src.Length);
             int filledZero = 0;
             int count = 0;
@@ -146,8 +146,8 @@ namespace LocalCommons.Cryptography
                 count = count + 3;
                 encCount = encCount + 4;
             }
-            //Console.WriteLine("{0}", Utility.ByteArrayToString(returnarray));
-            //Console.WriteLine(" ");
+            // Console.WriteLine("CompliedSend:{0}", Utility.ByteArrayToString(returnarray));
+            // Console.WriteLine(" ");
             return returnarray;
             /*Stream srcstream = new MemoryStream(src);
             MemoryStream fsEncrypted = new MemoryStream();

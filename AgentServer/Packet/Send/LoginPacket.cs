@@ -20,6 +20,7 @@ namespace AgentServer.Packet.Send
         public NP_Hex(Account User, string value)
         {
             ns.WriteHex(value);
+            Console.WriteLine("NP_Hex:{0}",value);
         }
     }
     public sealed class NP_Byte : NetPacket
@@ -46,6 +47,8 @@ namespace AgentServer.Packet.Send
             ns.Write((short)847); //0x34F  op code
             ns.Write((short)0);
             ns.Write(User.GlobalID);
+            Console.WriteLine(User.GlobalID);
+            Console.WriteLine(" ");
             ns.Write((byte)0x00);
             ns.Write((byte)0x00);
             ns.Write((byte)0x00);
