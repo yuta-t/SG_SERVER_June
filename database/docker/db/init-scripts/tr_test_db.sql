@@ -26,7 +26,7 @@ CREATE TABLE `itemappearance`  (
   `fdItemID` int(11) NOT NULL,
   `fdEqu` int(11) NOT NULL,
   PRIMARY KEY (`fdItemID`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of itemappearance
@@ -96,12 +96,12 @@ CREATE TABLE `itemequinfo`  (
   `fdItemID` int(11) NOT NULL,
   `fdItemTypeNum` int(11) NOT NULL,
   `fdItemCorrect` int(11) NOT NULL,
-  `fdItemName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdItemDesc` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdItemType` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdItemValidDate` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdItemUsageLimit` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdItemCombinable` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `fdItemName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdItemDesc` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdItemType` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdItemValidDate` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdItemUsageLimit` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdItemCombinable` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `fdItemDurability` int(50) NOT NULL,
   `fdItemWeight` int(11) NOT NULL,
   `fdItemPhysicalDamage` int(11) NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE `itemequinfo`  (
   `fdItemDefenceEffect8` int(11) NOT NULL,
   `fdItemDefenceEffect9` int(11) NOT NULL,
   `fdItemDefenceEffect10` int(11) NOT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of itemequinfo
@@ -351,12 +351,12 @@ INSERT INTO `itemequinfo` VALUES (1711472683, 9, 0, '紅光之杖', '與魔法�
 DROP TABLE IF EXISTS `itemfoodinfo`;
 CREATE TABLE `itemfoodinfo`  (
   `fdItemID` int(11) NOT NULL,
-  `fdItemName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdItemDesc` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdItemType` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdItemValidDate` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdItemUsageLimit` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdItemCombinable` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `fdItemName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdItemDesc` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdItemType` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdItemValidDate` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdItemUsageLimit` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdItemCombinable` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `fdItemAttackEffect1` int(11) NOT NULL,
   `fdItemAttackEffect2` int(11) NOT NULL,
   `fdItemAttackEffect3` int(11) NOT NULL,
@@ -388,7 +388,7 @@ CREATE TABLE `itemfoodinfo`  (
   `fdItemDefenceEffect14` int(11) NOT NULL,
   `fdItemDefenceEffect15` int(11) NOT NULL,
   PRIMARY KEY (`fdItemID`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of itemfoodinfo
@@ -402,14 +402,14 @@ INSERT INTO `itemfoodinfo` VALUES (1694499423, '大起司蛋糕', '圓形未切�
 DROP TABLE IF EXISTS `mapinfo`;
 CREATE TABLE `mapinfo`  (
   `fdMapGlobalID` int(11) NOT NULL AUTO_INCREMENT,
-  `fdMapID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdMapName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdMapMusic` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `fdMapID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdMapName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdMapMusic` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `fdMapWidth` int(11) NOT NULL,
   `fdMapHeight` int(11) NOT NULL,
-  `fdMapCRC` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `fdMapCRC` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`fdMapGlobalID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2202 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2202 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mapinfo
@@ -491,7 +491,7 @@ CREATE TABLE `mapteleport`  (
   `fdMapTeleportID` int(11) NOT NULL,
   `fdMapInitX` int(11) NOT NULL,
   `fdMapInitY` int(11) NOT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mapteleport
@@ -972,7 +972,7 @@ CREATE TABLE `tradeinfo` (
    `fdGlobalItemID12` int(11) NOT NULL,
    `fdTradeZula` int(11) NOT NULL,
    `fdTradeLock` int(11) NOT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tradeinfo
@@ -1022,29 +1022,29 @@ INSERT INTO `tradeinfo` VALUES (19, 417, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 DROP TABLE IF EXISTS `usercharacterinfo`;
 CREATE TABLE `usercharacterinfo`  (
   `fdGlobalID` int(11) NOT NULL AUTO_INCREMENT,
-  `fdGameID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `fdGameID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `fdStoredPos` int(11) NOT NULL,
   `fdNation` int(11) NOT NULL,
   `fdJob` int(11) NOT NULL,
   `fdLevel` int(11) NOT NULL,
   `fdZula` int(11) NOT NULL,
-  `fdCharName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `fdCharName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `fdGender` int(11) NOT NULL,
   `fdInsertTime` datetime(0) NOT NULL,
   `fdEqu1` int(11) NOT NULL,
   `fdEqu2` int(11) NOT NULL,
-  `fdEncodedCloth` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdEncodedSkin` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdEncodedHair` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdHairClump1` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdHairClump2` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdHairClump3` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdHairClump4` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdMapID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `fdEncodedCloth` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdEncodedSkin` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdEncodedHair` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdHairClump1` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdHairClump2` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdHairClump3` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdHairClump4` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdMapID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `fdMapX` int(11) NOT NULL,
   `fdMapY` int(11) NOT NULL,
   PRIMARY KEY (`fdGlobalID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 420 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 420 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of usercharacterinfo
@@ -1078,11 +1078,11 @@ INSERT INTO `usercharacterinfo` VALUES (419, 'niku18yo', 1, 12, 6, 1, 10000, '�
 -- ----------------------------
 DROP TABLE IF EXISTS `userinfo`;
 CREATE TABLE `userinfo`  (
-  `fdUserID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdGameID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `fdUserID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdGameID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `fdInsertTime` datetime(0) NOT NULL,
   PRIMARY KEY (`fdUserID`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of userinfo
@@ -1119,11 +1119,11 @@ INSERT INTO `userinfo` VALUES ('zero33542', 'sutcac', '2020-05-26 23:55:13');
 -- ----------------------------
 DROP TABLE IF EXISTS `userinfofrompublisher`;
 CREATE TABLE `userinfofrompublisher`  (
-  `fdUserID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `fdPassword` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `fdUserID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fdPassword` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `fdUserType` int(11) NOT NULL,
   PRIMARY KEY (`fdUserID`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of userinfofrompublisher
@@ -1172,7 +1172,7 @@ CREATE TABLE `useritem`  (
   `fdItemCorrect` int(11) NOT NULL,
   `fdItemCount` int(11) NOT NULL,
   PRIMARY KEY (`fdGlobalItemID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2023 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2023 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of useritem
