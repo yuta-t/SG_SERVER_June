@@ -28,6 +28,7 @@ namespace AgentServer.Structuring.Game
             using (var con = new MySqlConnection(Conf.Connstr))
             {
                 con.Open();
+
                 using (var cmd = new MySqlCommand(string.Empty, con))
                 {
                     cmd.Parameters.Clear();
