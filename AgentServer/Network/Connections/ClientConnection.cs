@@ -14,6 +14,8 @@ using LocalCommons.Utilities;
 using AgentServer.Controller;
 using System.Collections.Concurrent;
 using System.Threading;
+using AgentServer.Packet.Send;
+using MySqlX.XDevAPI;
 
 namespace AgentServer.Network.Connections
 {
@@ -182,6 +184,32 @@ namespace AgentServer.Network.Connections
             
             switch (opcode)
             {
+                case 453:
+                    // 定期的に送られてくる
+                    try
+                    {
+                        Account User = this.CurrentAccount;
+
+                        // ログアウトパケット 無限ロードとかに対して有効。
+                        LoginHandle.Handle_Logout(this, reader);
+
+                        // LoginHandle.Handle_LoginUnknown1(this, reader);
+                        // LoginHandle.Handle_LoginUnknown2(this, reader);
+                        //LoginHandle.Handle_LoginUnknown3(this, reader);
+                        //LoginHandle.Handle_LoginUnknown4(this, reader);
+                        // LoginHandle.Handle_LoginUnknown5(this, reader); // 音が鳴った
+                        // LoginHandle.Handle_LoadAllItem(this, reader);
+                        // LoginHandle.Handle_LoginReadDataCompleted(this, reader);
+
+                        // HEX送信テスト
+                        // this.SendAsync(new NP_Hex(User, "A5A5A5A5A5A5A5A5")); // 送信テスト
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+
+                    break;
                 case 450: //0x1C2
                     GameRoomHandle.Handle_ChatToAll(this, reader);
                     break;
@@ -236,14 +264,23 @@ namespace AgentServer.Network.Connections
                 case 825: //0x339
                     if (subopcode == 0x02)
                     {
+
                         LoginHandle.Handle_LoginCheckGlobalID(this, reader);
                         LoginHandle.Handle_LoginUnknown1(this, reader);
-                        LoginHandle.Handle_LoginUnknown2(this, reader);
-                        LoginHandle.Handle_LoginUnknown3(this, reader);
-                        LoginHandle.Handle_LoginUnknown4(this, reader);
-                        LoginHandle.Handle_LoginUnknown5(this, reader);
-                        LoginHandle.Handle_LoadAllItem(this, reader);
-                        LoginHandle.Handle_LoginReadDataCompleted(this, reader);
+                        //LoginHandle.Handle_LoginUnknown2(this, reader); // LoginMapInfo_0x1EC
+                        //LoginHandle.Handle_LoginUnknown3(this, reader); // LoginMapMusicInfo_0x31B
+                        //LoginHandle.Handle_LoginUnknown4(this, reader); // 
+                        LoginHandle.Handle_LoginUnknown5(this, reader); // LoginCharParam_0x3A0 -> LoginCharAppear_0x3E8_00 // 音が鳴った
+
+                        // unknown5だけだと header: 0, opcode: 983, subopcode: 21だけ ロードは進む
+                        // Unknown5までを一気に送るとheader: 0, opcode: 1032, subopcode: 0もくる ロードは進まない
+
+                        // Unknown 2,3,4,5の順に送ると　header: 0, opcode: 983, subopcode: 21 と header: 0, opcode: 1032, subopcode: 0 ロードは進む
+
+                        // Handle_LoginCheckGlobalID+Unknown5ではheader: 0, opcode: 983, subopcode: 21 だけ
+
+                        // LoginHandle.Handle_LoadAllItem(this, reader);
+                        // LoginHandle.Handle_LoginReadDataCompleted(this, reader); 
                     }
                     break;
                 case 922: //0x39A
@@ -255,8 +292,25 @@ namespace AgentServer.Network.Connections
                 case 973: //0x3CD
                     GameRoomHandle.Handle_DualMove(this, reader);
                     break;
+                case 983:
+                    if(subopcode == 0x15)
+                    {
+                        LoginHandle.Handle_LoginUnknown2(this, reader); // LoginMapInfo_0x1EC
+                        // LoginHandle.Handle_LoginUnknown3(this, reader); // LoginMapMusicInfo_0x31B
+                        // LoginHandle.Handle_LoginUnknown4(this, reader); // 
+                    }
+                    break;
                 case 989: //0x3DD
                     GameRoomHandle.Handle_ActToAll(this, reader);
+                    break;
+                case 1032:
+                    if(subopcode == 0x00)
+                    {
+                        LoginHandle.Handle_LoginUnknown3(this, reader); // LoginMapMusicInfo_0x31B
+                        LoginHandle.Handle_LoginUnknown4(this, reader);
+                        LoginHandle.Handle_LoadAllItem(this, reader);
+                        LoginHandle.Handle_LoginReadDataCompleted(this, reader);
+                    }
                     break;
                 case 1252: //0x4E4
                     LoginHandle.Handle_MoveItem(this, reader);
