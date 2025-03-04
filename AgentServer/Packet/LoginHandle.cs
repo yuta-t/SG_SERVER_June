@@ -841,8 +841,8 @@ namespace AgentServer.Packet
         public static void Handle_NOTIFY_MY_UDP(ClientConnection Client, PacketReader reader, byte last)
         {
             //Console.WriteLine("eServer_NOTIFY_MY_UDP_ACK");
-            /*08 02 00 26 84 C0 A8 01 02 00 00 00 00 00 00 00 00 02 00
-             26 84 C0 A8 01 02 00 00 00 00 00 00 00 00 02 00 23 C3
+            /*08 02 00 26 84 C0 A8 01 02 00 00 00 00 00 00 00 00 02 00 
+             26 84 C0 A8 01 02 00 00 00 00 00 00 00 00 02 00 23 C3 
              C0 A8 01 04 2C 5E 48 78 00 00 00 00 D0*/
             Account User = Client.CurrentAccount;
             User.UDPInfo = reader.ReadByteArray(0x30);
@@ -1433,7 +1433,7 @@ namespace AgentServer.Packet
                         con.Close();
                     }
                 }
-            }
+            } 
         }
         private static void getEquItemInfo(Account User)
         {
@@ -1539,7 +1539,7 @@ namespace AgentServer.Packet
                 }
             }
         }
-        private static bool moveCharItem(Account User, ItemAttr UserItem, int destItemPos)
+        private static bool moveCharItem(Account User, ItemAttr UserItem, int destItemPos) 
         {
             using (var con = new MySqlConnection(Conf.Connstr))
             {
@@ -1568,7 +1568,7 @@ namespace AgentServer.Packet
                 }
             }
         }
-
+        
         private static void getCharBasicInfo(Account User)
         {
             if (User.CharacterCount == 0)
@@ -1622,13 +1622,13 @@ namespace AgentServer.Packet
                                 }
 
                                 //1. decode hair color
-                                //decodedMaterialColor(StringToByteArrayFastest("81483840"));
+                                //decodedMaterialColor(StringToByteArrayFastest("81483840"));  
                                 //2. decode hair clump & item
                                 //decodedMultiBytes(StringToByteArrayFastest("86A880845F"));     //86A880845F->6500025F
                                 //decodedMultiBytes(StringToByteArrayFastest("80D0848032"));     //80D0848032->0A010032
                                 //decodedMultiBytes(StringToByteArrayFastest("86B08C802B"));
                                 //decodedDynamicBytes(StringToByteArrayFastest("86A0808836"));
-                                //1. encode hair clump & item & char equip
+                                //1. encode hair clump & item & char equip 
                                 //encodeMultiBytes(167837746);                                   //0A010032->167837746 ->80D0848032
                                 //encodeMultiBytes(1694499423);                                  //6500025F->1694499423->86A880845F
                                 //encodeMultiBytes(5941);

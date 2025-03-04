@@ -205,12 +205,6 @@ namespace AgentServer.Network.Connections
                         GameRoomHandle.Handle_DualConfirm(this, reader);
                     }
                     break;
-                case 1633:
-                    if (subopcode == 72)
-                    {
-                        LoginHandle.Handle_LoginCheck(this, reader);
-                    }
-                    break;
                 case 865: //0x361
                     if (subopcode == 0x00)
                     {

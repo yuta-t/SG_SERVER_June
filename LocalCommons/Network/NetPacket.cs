@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using LocalCommons.Cryptography;
 using LocalCommons.Utilities;
 //using LocalCommons.Compression;
@@ -59,7 +58,6 @@ namespace LocalCommons.Network
             this._mLittleEndian = true;
             this._mIsArcheAge = true;
             ns = PacketWriter.CreateInstance(16, true);
-            Console.WriteLine("送信パケットクラス: {0}", GetType().Name);
         }
 
         /// <summary>
@@ -72,8 +70,7 @@ namespace LocalCommons.Network
 			this._mPacketId = packetId;
 			this._mLittleEndian = isLittleEndian;
 			ns = PacketWriter.CreateInstance(16, isLittleEndian);
-            Console.WriteLine("パケットクラス: {0}, id:{1}, isLittleEndian:{2}", GetType().Name, packetId, isLittleEndian);
-        }
+		}
 
         /// <summary>
         /// Creates Instance Of ArcheAge Game Packet.
