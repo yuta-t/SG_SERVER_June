@@ -43,19 +43,7 @@ namespace AgentServer.Packet
                 int passwordlen = reader.ReadByte();
                 string password = reader.ReadStringSafe(passwordlen);
                 //reader.Clear();
-                Console.WriteLine("unk1: {0}, unk2: {1}, unk3: {2}, useridlen: {3}, userid: {4}, passwordlen: {5}, password: {6}", unk1, unk2, unk3, useridlen, userid, passwordlen, password);
-                string otp = reader.ReadStringSafe();
-                Console.WriteLine("otp:{0}", otp);
-                // otpに空白と@が複数回出ていたら警告を出すとより安全
-                string idpass =otp.Split(' ')[0];
-                Console.WriteLine("id:{0}, pass:{1}", idpass.Split('@')[0], idpass.Split('@')[1]);
-                userid = idpass.Split('@')[0];
-                password = idpass.Split('@')[1];
-                // 強制ログイン許可
-                userid = "alanlei";
-                password = "123";
-                // bool UserCheckOK = true;
-                // userid, passwordがパケットから取得できていないのでコメントアウト
+                //Console.WriteLine("unk1: {0}, unk2: {1}, unk3: {2}, useridlen: {3}, userid: {4}, passwordlen: {5}, password: {6}", unk1, unk2, unk3, useridlen, userid, passwordlen, password);
                 bool UserCheckOK = checkUserAccount(userid, password);
 
                 if (UserCheckOK)
@@ -192,7 +180,6 @@ namespace AgentServer.Packet
                 string gameid = reader.ReadUTF8StringSafe(gameidlen);
 
                 bool AccountCheckOK = checkNewAccount(User, gameid);
-                //bool AccountCheckOK = true;
                 if (AccountCheckOK)
                 {
                     User.GameID = gameid;
@@ -256,13 +243,10 @@ namespace AgentServer.Packet
         {
             try
             {
-                Console.WriteLine("新キャラ作成");
                 Account User = Client.CurrentAccount;
                 getCharNumber(User);
-                // すでにキャラクターが2体以上はエラー
-                if (User.CharacterCount > 2)
+                if (User.CharacterCount > 0)
                 {
-                    Console.WriteLine("キャラクター上限違反");
                     return;
                 }
                 string hairClump1 = "FFFFFFFF";
@@ -510,7 +494,7 @@ namespace AgentServer.Packet
                 }
 
                 bool NewCharCheckOK = checkNewCharacter(User, charid, face, head, gender, clothColor, skinColor, hairColor, hairClump1, hairClump2, hairClump3, hairClump4);
-                Console.WriteLine("New Char Head: {0}, Face: {1}", head, face);
+                //Console.WriteLine("New Char Head: {0}, Face: {1}", head, face);
 
                 if (NewCharCheckOK)
                 {
@@ -857,8 +841,8 @@ namespace AgentServer.Packet
         public static void Handle_NOTIFY_MY_UDP(ClientConnection Client, PacketReader reader, byte last)
         {
             //Console.WriteLine("eServer_NOTIFY_MY_UDP_ACK");
-            /*08 02 00 26 84 C0 A8 01 02 00 00 00 00 00 00 00 00 02 00 
-             26 84 C0 A8 01 02 00 00 00 00 00 00 00 00 02 00 23 C3 
+            /*08 02 00 26 84 C0 A8 01 02 00 00 00 00 00 00 00 00 02 00
+             26 84 C0 A8 01 02 00 00 00 00 00 00 00 00 02 00 23 C3
              C0 A8 01 04 2C 5E 48 78 00 00 00 00 D0*/
             Account User = Client.CurrentAccount;
             User.UDPInfo = reader.ReadByteArray(0x30);
@@ -1449,7 +1433,7 @@ namespace AgentServer.Packet
                         con.Close();
                     }
                 }
-            } 
+            }
         }
         private static void getEquItemInfo(Account User)
         {
@@ -1555,7 +1539,7 @@ namespace AgentServer.Packet
                 }
             }
         }
-        private static bool moveCharItem(Account User, ItemAttr UserItem, int destItemPos) 
+        private static bool moveCharItem(Account User, ItemAttr UserItem, int destItemPos)
         {
             using (var con = new MySqlConnection(Conf.Connstr))
             {
@@ -1584,7 +1568,7 @@ namespace AgentServer.Packet
                 }
             }
         }
-        
+
         private static void getCharBasicInfo(Account User)
         {
             if (User.CharacterCount == 0)
@@ -1638,13 +1622,13 @@ namespace AgentServer.Packet
                                 }
 
                                 //1. decode hair color
-                                //decodedMaterialColor(StringToByteArrayFastest("81483840"));  
+                                //decodedMaterialColor(StringToByteArrayFastest("81483840"));
                                 //2. decode hair clump & item
                                 //decodedMultiBytes(StringToByteArrayFastest("86A880845F"));     //86A880845F->6500025F
                                 //decodedMultiBytes(StringToByteArrayFastest("80D0848032"));     //80D0848032->0A010032
                                 //decodedMultiBytes(StringToByteArrayFastest("86B08C802B"));
                                 //decodedDynamicBytes(StringToByteArrayFastest("86A0808836"));
-                                //1. encode hair clump & item & char equip 
+                                //1. encode hair clump & item & char equip
                                 //encodeMultiBytes(167837746);                                   //0A010032->167837746 ->80D0848032
                                 //encodeMultiBytes(1694499423);                                  //6500025F->1694499423->86A880845F
                                 //encodeMultiBytes(5941);
@@ -1791,10 +1775,9 @@ namespace AgentServer.Packet
             {
                 using (var con = new MySqlConnection(Conf.Connstr))
                 {
+
                     con.Open();
-                    var cmd = new MySqlCommand("SET NAMES utf8mb4", con);
-                    cmd.ExecuteNonQuery();
-                    cmd = new MySqlCommand(string.Empty, con);
+                    var cmd = new MySqlCommand(string.Empty, con);
                     cmd.Parameters.Clear();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "usp_checkUserAccount";
