@@ -8,7 +8,7 @@ namespace AgentServer
 {
     public static class Conf
     {
-        public static string Connstr = "server=127.0.0.1;port=3306;user id=root;password=;database=tr_game_db;charset=utf8mb4;";
+        public static string Connstr = "server=127.0.0.1;port=3306;user id=root;password=;database=tr_game_db;charset=big5;";
         public static string ServerIP = "";
         public static int AgentPort = 0;
         public static int AgentPort2 = 0;
